@@ -57,7 +57,7 @@ let count = 0;
 let previousTarget = null;
 let delay = 1200;
 let score = 0;
-let timeLeft = 60;
+let timeLeft = 150;
 let isPaused = false;
 
 const game = document.getElementById('game');
@@ -70,7 +70,7 @@ const startBtn = document.querySelector('.start-btn');
 const pauseBtn = document.querySelector('.pause-btn');
 const playBtn = document.querySelector('.play-btn');
 const paused = document.querySelector('.paused');
-const icons = document.querySelectorAll('.fa');
+const btns = document.querySelectorAll('.click');
 
 const intro = new Audio('../audio/intro.mp3');
 const gamePlay = new Audio('../audio/gameplay.mp3');
@@ -80,6 +80,7 @@ const pair = new Audio('../audio/pair.wav');
 const clicks = new Audio('../audio/pair2.mp3');
 const gameOver = new Audio('../audio/gameover.mp3');
 const final = new Audio('../audio/final.wav');
+const completed = new Audio('../audio/complete.mp3');
 
 grid.setAttribute('class', 'grid');
 game.appendChild(grid);
@@ -139,7 +140,7 @@ const timer = () => {
 		setTimeout(() => (sb.style.display = 'flex'), 500);
 		sb.innerHTML = `
     	<p>You Scored: ${score}</p>
-			<span onclick="location.reload()">Replay</span>
+			<span onclick="location.reload()" class="click">Replay</span>
     `;
 	}
 
@@ -150,9 +151,12 @@ const timer = () => {
 	}
 	if (score === 12) {
 		setTimeout(() => (sb.style.display = 'flex'), 500);
+		completed.play();
+		gamePlay.pause();
 		sb.innerHTML = `
+      <img src="https://www.mariowiki.com/images/1/15/MK8-Line-Mario-Trophy.gif">
     	<p>Level Complete. Well Done!</p>
-			<span onclick="location.reload()">Replay</span>
+			<span onclick="location.reload()" class="click">Replay</span>
     `;
 	}
 };
@@ -193,8 +197,9 @@ grid.addEventListener('click', (event) => {
 		previousTarget = clicked;
 	}
 });
-icons.forEach((icon) => {
-	icon.addEventListener('click', () => {
+
+btns.forEach((btn) => {
+	btn.addEventListener('click', () => {
 		clicks.play();
 	});
 });
