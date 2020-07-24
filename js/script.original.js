@@ -70,8 +70,20 @@ const startBtn = document.querySelector('.start-btn');
 const pauseBtn = document.querySelector('.pause-btn');
 const playBtn = document.querySelector('.play-btn');
 const paused = document.querySelector('.paused');
+const icons = document.querySelectorAll('.fa');
+
+const intro = new Audio('../audio/intro.mp3');
+const gamePlay = new Audio('../audio/gameplay.mp3');
+const pauseMenu = new Audio('../audio/pause.mp3');
+const wrong = new Audio('../audio/wrong.wav');
+const pair = new Audio('../audio/pair.wav');
+const clicks = new Audio('../audio/pair2.mp3');
+const gameOver = new Audio('../audio/gameover.mp3');
+const final = new Audio('../audio/final.wav');
+
 grid.setAttribute('class', 'grid');
 game.appendChild(grid);
+intro.play();
 
 gameGrid.forEach((item) => {
 	const { name, img } = item;
@@ -93,6 +105,7 @@ gameGrid.forEach((item) => {
 });
 
 const match = () => {
+	pair.play();
 	const selected = document.querySelectorAll('.selected');
 	selected.forEach((card) => {
 		card.classList.add('match');
@@ -105,7 +118,7 @@ const resetGuesses = () => {
 	count = 0;
 	previousTarget = null;
 
-	var selected = document.querySelectorAll('.selected');
+	let selected = document.querySelectorAll('.selected');
 	selected.forEach((card) => {
 		card.classList.remove('selected');
 	});
@@ -122,11 +135,18 @@ const timer = () => {
 	timeLeft--;
 	if (timeLeft < 0) {
 		timeLeft = 0;
+		gameOver.play();
 		setTimeout(() => (sb.style.display = 'flex'), 500);
 		sb.innerHTML = `
     	<p>You Scored: ${score}</p>
 			<span onclick="location.reload()">Replay</span>
     `;
+	}
+
+	if (timeLeft === 3) {
+		gamePlay.pause();
+		final.play();
+		final.volume(200);
 	}
 	if (score === 12) {
 		setTimeout(() => (sb.style.display = 'flex'), 500);
@@ -165,18 +185,30 @@ grid.addEventListener('click', (event) => {
 			if (firstGuess === secondGuess) {
 				increaseScore();
 			}
+			if (firstGuess !== secondGuess) {
+				wrong.play();
+			}
 			setTimeout(resetGuesses, delay);
 		}
 		previousTarget = clicked;
 	}
 });
+icons.forEach((icon) => {
+	icon.addEventListener('click', () => {
+		clicks.play();
+	});
+});
 
 pauseBtn.addEventListener('click', () => {
+	pauseMenu.play();
+	gamePlay.pause();
 	isPaused = true;
 	paused.style.display = 'flex';
 });
 
 playBtn.addEventListener('click', () => {
+	pauseMenu.pause();
+	gamePlay.play();
 	isPaused = false;
 	paused.style.display = 'none';
 });
@@ -189,4 +221,6 @@ startBtn.addEventListener('click', () => {
 	}, 1000);
 
 	start.style.display = 'none';
+	intro.pause();
+	gamePlay.play();
 });
