@@ -118,8 +118,12 @@ body {
 
 .start {
 	background: #e52421;
+	color: white;
 }
 
+.start-btn:hover {
+	color: #124dff;
+}
 .start span,
 .scoreboard span {
 	color: #fefefe;
@@ -131,7 +135,8 @@ body {
 	text-decoration: underline;
 }
 
-.controls {
+.controls,
+.social {
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
@@ -139,10 +144,20 @@ body {
 	flex-direction: column;
 }
 
+.social {
+	left: 20px;
+	width: 0;
+}
+
+.social i,
 .controls i {
 	margin: 1rem;
 	color: #fab942;
 	cursor: pointer;
+}
+
+.social i {
+	color: white;
 }
 
 .fa:hover {

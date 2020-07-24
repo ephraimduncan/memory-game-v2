@@ -128,6 +128,13 @@ const timer = () => {
 			<span onclick="location.reload()">Replay</span>
     `;
 	}
+	if (score === 12) {
+		setTimeout(() => (sb.style.display = 'flex'), 500);
+		sb.innerHTML = `
+    	<p>Level Complete. Well Done!</p>
+			<span onclick="location.reload()">Replay</span>
+    `;
+	}
 };
 
 grid.addEventListener('click', (event) => {
