@@ -86,10 +86,12 @@ body {
 	margin: 0.2rem;
 }
 
+.start,
 .scoreboard {
 	height: 100vh;
 	width: 100vw;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	font-family: Bangers, sans-serif;
@@ -98,7 +100,21 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background-color: #fab942;
-	opacity: 0.5;
-	display: hidden;
+	background: rgba(224, 153, 22, 0.8);
+}
+.scoreboard {
+	display: none;
+}
+.scoreboard p {
+	color: #124dff;
+}
+
+.start span,
+.scoreboard span {
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.scoreboard span:hover {
+	text-decoration: underline;
 }

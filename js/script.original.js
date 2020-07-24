@@ -57,12 +57,15 @@ let count = 0;
 let previousTarget = null;
 let delay = 1200;
 let score = 0;
-let timeLeft = 10;
+let timeLeft = 60;
 
 const game = document.getElementById('game');
 const grid = document.createElement('section');
 const scoreboard = document.querySelector('.score');
 const time = document.querySelector('.time');
+const sb = document.querySelector('.scoreboard');
+const start = document.querySelector('.start');
+const startBtn = document.querySelector('.start-btn');
 grid.setAttribute('class', 'grid');
 game.appendChild(grid);
 
@@ -113,9 +116,15 @@ const increaseScore = () => {
 const timer = () => {
 	time.textContent = `Time Left: ${timeLeft}`;
 	timeLeft--;
-	if (timeLeft < 0) timeLeft = 0;
+	if (timeLeft < 0) {
+		timeLeft = 0;
+		setTimeout(() => (sb.style.display = 'flex'), 500);
+		sb.innerHTML = `
+    	<p>You Scored: ${score}</p>
+			<span onclick="location.reload()">Replay</span>
+    `;
+	}
 };
-setInterval(timer, 1000);
 
 grid.addEventListener('click', (event) => {
 	const clicked = event.target;
@@ -149,4 +158,9 @@ grid.addEventListener('click', (event) => {
 		}
 		previousTarget = clicked;
 	}
+});
+
+startBtn.addEventListener('click', () => {
+	setInterval(timer, 1000);
+	start.style.display = 'none';
 });
