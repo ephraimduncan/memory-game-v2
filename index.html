@@ -1,23 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-  <title>Memory Game</title>
+		<title>Memory Game</title>
 
-  <link rel="stylesheet" href="css/style.prefix.css">
-  <link rel="icon" type="image/png" href="img/mushroom.png">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="css/style.prefix.css" />
+		<link rel="icon" type="image/png" href="img/mushroom.png" />
+	</head>
 
-</head>
+	<body>
+		<div class="main-score">
+			<span class="score">Score: 0</span>
+			<span class="time">Time Left: 60</span>
+		</div>
 
-<body>
+		<div id="game"></div>
+		<div class="scoreboard"></div>
+		<div class="controls">
+			<i
+				class="fa fa-pause fa-3x pause-btn click"
+				aria-hidden="true"
+			></i>
+			<i
+				class="fa fa-refresh fa-3x click"
+				aria-hidden="true"
+				onclick="location.reload()"
+			></i>
+		</div>
+		<div class="paused">
+			<img
+				src="https://lh3.googleusercontent.com/proxy/QZdsUq7Vk-rhNBBhJVHPvz-A712g_kfksXgraop6cvdL09P8a2i6jNdxI-0vGvlrpLPWbIrWxTn5cNjKJv6j8VLQ3xMCZO4p3PaDZgUmNJq3-FOH1Zp0Q0icqq4Zx0jyRi7q_-VczvB0KnbBwLpw7qPvFEBEjZxI2L7wi3GjM7KL-MQNSAHPFLSlxcpBBEwROWw"
+				alt=""
+				width="500"
+			/>
+			<p>Paused</p>
+			<span class="play-btn">
+				<i
+					class="fa fa-play click"
+					aria-hidden="true"
+				></i>
+			</span>
+		</div>
+		<div class="social">
+			<a href="https://github.com/dephraiim" target="_blank">
+				<i class="fa fa-github fa-3x click"></i>
+			</a>
+			<a href="https://twitter.com/dephraiim" target="_blank">
+				<i class="fa fa-twitter fa-3x click"></i>
+			</a>
+			<a
+				href="https://instagram.com/dephraiim"
+				target="_blank"
+			>
+				<i class="fa fa-instagram fa-3x click"></i>
+			</a>
+			<a
+				href="mailto:ephraimduncan68@gmail.com"
+				target="_blank"
+			>
+				<i class="fa fa-envelope fa-3x click"></i>
+			</a>
+		</div>
+		<div class="start">
+			<img src="./img/pageload.png" alt="Mario" width="300" />
+			<p>Welcome To Mario Memory Game</p>
+			<span class="start-btn click">Start</span>
+		</div>
 
-  <div id="game"></div>
-
-  <script src="js/script.babel.js"></script>
-</body>
-
+		<script src="js/script.original.js"></script>
+	</body>
 </html>
