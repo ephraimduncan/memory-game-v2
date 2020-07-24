@@ -57,7 +57,7 @@ let count = 0;
 let previousTarget = null;
 let delay = 1200;
 let score = 0;
-let timeLeft = 150;
+let timeLeft = 60;
 let isPaused = false;
 
 const game = document.getElementById('game');
