@@ -86,6 +86,7 @@ body {
 	margin: 0.2rem;
 }
 
+.paused,
 .start,
 .scoreboard {
 	height: 100vh;
@@ -102,19 +103,48 @@ body {
 	left: 0;
 	background: rgba(224, 153, 22, 0.8);
 }
+.paused,
 .scoreboard {
 	display: none;
 }
+
+.paused {
+	background: #fefefe;
+}
+
 .scoreboard p {
 	color: #124dff;
 }
 
+.start {
+	background: #e52421;
+}
+
 .start span,
 .scoreboard span {
-	color: #ffffff;
+	color: #fefefe;
 	cursor: pointer;
 }
 
+.play-btn,
 .scoreboard span:hover {
 	text-decoration: underline;
+}
+
+.controls {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.controls i {
+	margin: 1rem;
+	color: #fab942;
+	cursor: pointer;
+}
+
+.fa:hover {
+	transform: scale(1.1);
 }

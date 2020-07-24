@@ -58,6 +58,7 @@ let previousTarget = null;
 let delay = 1200;
 let score = 0;
 let timeLeft = 60;
+let isPaused = false;
 
 const game = document.getElementById('game');
 const grid = document.createElement('section');
@@ -66,6 +67,9 @@ const time = document.querySelector('.time');
 const sb = document.querySelector('.scoreboard');
 const start = document.querySelector('.start');
 const startBtn = document.querySelector('.start-btn');
+const pauseBtn = document.querySelector('.pause-btn');
+const playBtn = document.querySelector('.play-btn');
+const paused = document.querySelector('.paused');
 grid.setAttribute('class', 'grid');
 game.appendChild(grid);
 
@@ -160,7 +164,22 @@ grid.addEventListener('click', (event) => {
 	}
 });
 
+pauseBtn.addEventListener('click', () => {
+	isPaused = true;
+	paused.style.display = 'flex';
+});
+
+playBtn.addEventListener('click', () => {
+	isPaused = false;
+	paused.style.display = 'none';
+});
+
 startBtn.addEventListener('click', () => {
-	setInterval(timer, 1000);
+	setInterval(() => {
+		if (!isPaused) {
+			timer();
+		}
+	}, 1000);
+
 	start.style.display = 'none';
 });
