@@ -56,9 +56,13 @@ let secondGuess = '';
 let count = 0;
 let previousTarget = null;
 let delay = 1200;
+let score = 0;
+let timeLeft = 10;
 
 const game = document.getElementById('game');
 const grid = document.createElement('section');
+const scoreboard = document.querySelector('.score');
+const time = document.querySelector('.time');
 grid.setAttribute('class', 'grid');
 game.appendChild(grid);
 
@@ -100,6 +104,19 @@ const resetGuesses = () => {
 	});
 };
 
+const increaseScore = () => {
+	score++;
+	scoreboard.textContent = `SCORE: ${score}`;
+	setTimeout(match, delay);
+};
+
+const timer = () => {
+	time.textContent = `Time Left: ${timeLeft}`;
+	timeLeft--;
+	if (timeLeft < 0) timeLeft = 0;
+};
+setInterval(timer, 1000);
+
 grid.addEventListener('click', (event) => {
 	const clicked = event.target;
 
@@ -126,7 +143,7 @@ grid.addEventListener('click', (event) => {
 
 		if (firstGuess && secondGuess) {
 			if (firstGuess === secondGuess) {
-				setTimeout(match, delay);
+				increaseScore();
 			}
 			setTimeout(resetGuesses, delay);
 		}

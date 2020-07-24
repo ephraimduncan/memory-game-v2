@@ -1,70 +1,104 @@
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  margin: 20px 0;
-  background: #6589F9;
+	margin: 20px 0;
+	background: #6589f9;
+	overflow: hidden;
 }
 
 .grid {
-  max-width: 960px;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+	max-width: 960px;
+	margin: 0 auto;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: space-evenly;
+	-ms-flex-pack: space-evenly;
+	justify-content: space-evenly;
 }
 
 .card {
-  position: relative;
-  -webkit-transition: all .4s linear;
-  -o-transition: all .4s linear;
-  transition: all .4s linear;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  margin: 5px;
+	position: relative;
+	-webkit-transition: all 0.4s linear;
+	-o-transition: all 0.4s linear;
+	transition: all 0.4s linear;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	margin: 5px;
 }
 
 .card,
 .back,
 .front {
-  height: 150px;
-  width: 150px;
+	height: 130px;
+	width: 130px;
 }
 
 .back,
 .front {
-  position: absolute;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+	position: absolute;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
 .front {
-  background: #FAB942 url('../img/question.gif') no-repeat center center / contain;
+	background: #fab942 url('../img/question.gif') no-repeat center center /
+		contain;
 }
 
 .back {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-  background-color: #6589F9;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+	background-color: #6589f9;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 
 .selected {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
 }
 
 .match .front {
-  background: #6589F9 !important;
+	background: #6589f9 !important;
+}
+.main-score {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	max-width: 70%;
+	margin: 0 auto;
+}
+.score,
+.time {
+	font-family: Bangers, sans-serif;
+	font-size: 3rem;
+	color: #fab942;
+	margin: 0.2rem;
+}
+
+.scoreboard {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Bangers, sans-serif;
+	font-size: 3rem;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #fab942;
+	opacity: 0.5;
+	display: hidden;
 }
