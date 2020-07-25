@@ -63,6 +63,7 @@ var delay = 1200;
 var score = 0;
 var timeLeft = 60;
 var isPaused = false;
+
 var game = document.getElementById('game');
 var grid = document.createElement('section');
 var scoreboard = document.querySelector('.score');
@@ -74,6 +75,7 @@ var pauseBtn = document.querySelector('.pause-btn');
 var playBtn = document.querySelector('.play-btn');
 var paused = document.querySelector('.paused');
 var btns = document.querySelectorAll('.click');
+var icons = document.querySelectorAll('.social a');
 
 var intro = new Audio('../audio/intro.mp3');
 var gamePlay = new Audio('../audio/gameplay.mp3');
@@ -140,7 +142,7 @@ var timer = function timer() {
 		setTimeout(function () {
 			return (sb.style.display = 'flex');
 		}, 500);
-		sb.innerHTML = '\n    \t<p>You Scored: '.concat(
+		sb.innerHTML = '\n      <h1> Game Over \uD83D\uDE14</h1>\n    \t<p>You Scored: '.concat(
 			score,
 			'</p>\n\t\t\t<span onclick="location.reload()" class="click">Replay</span>\n    ',
 		);
@@ -159,8 +161,22 @@ var timer = function timer() {
 		completed.play();
 		gamePlay.pause();
 		sb.innerHTML =
-			'\n      <img src="https://www.mariowiki.com/images/1/15/MK8-Line-Mario-Trophy.gif">\n    \t<p>Level Complete. Well Done!</p>\n\t\t\t<span onclick="location.reload()" class="click">Replay</span>\n    ';
+			'\n      <img src="https://www.mariowiki.com/images/1/15/MK8-Line-Mario-Trophy.gif">\n    \t<p>Level Complete. Well Done!\uD83C\uDF1F\uD83C\uDF89</p>\n\t\t\t<span onclick="location.reload()" class="click">Replay</span>\n    ';
 	}
+};
+
+var pauseGame = function pauseGame() {
+	pauseMenu.play();
+	gamePlay.pause();
+	isPaused = true;
+	paused.style.display = 'flex';
+};
+
+var playGame = function playGame() {
+	pauseMenu.pause();
+	gamePlay.play();
+	isPaused = false;
+	paused.style.display = 'none';
 };
 
 grid.addEventListener('click', function (event) {
@@ -205,24 +221,17 @@ grid.addEventListener('click', function (event) {
 });
 
 btns.forEach(function (btn) {
-	btn.addEventListener('click', function () {
+	return btn.addEventListener('click', function () {
 		clicks.play();
 	});
 });
 
-pauseBtn.addEventListener('click', function () {
-	pauseMenu.play();
-	gamePlay.pause();
-	isPaused = true;
-	paused.style.display = 'flex';
+icons.forEach(function (icon) {
+	return icon.addEventListener('click', pauseGame);
 });
 
-playBtn.addEventListener('click', function () {
-	pauseMenu.pause();
-	gamePlay.play();
-	isPaused = false;
-	paused.style.display = 'none';
-});
+pauseBtn.addEventListener('click', pauseGame);
+playBtn.addEventListener('click', playGame);
 
 startBtn.addEventListener('click', function () {
 	setInterval(function () {
