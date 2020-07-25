@@ -11,6 +11,28 @@ Inspired by [Tania Rascia](http://taniarascia.github.io/memory). Read the tutori
 
 ### [View Demo](https://super-mario.now.sh/)
 
+## Screenshots
+
+### Home
+
+<img src="./img/sc1.png" width="600">
+
+### Gameplay
+
+<img src="./img/sc2.png" width="600">
+
+### Pause Menu
+
+<img src="./img/sc3.png" width="600">
+
+### Game Over
+
+<img src="./img/sc4.png" width="600">
+
+### Winner
+
+<img src="./img/sc5.png" width="600">
+
 ## Features
 
 - Sound Effects
