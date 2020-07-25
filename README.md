@@ -44,6 +44,7 @@ Inspired by [Tania Rascia](http://taniarascia.github.io/memory). Read the tutori
 - Highscore Board
 - Build as Desktop App
 - Make Responsive
+- More Animations and Transitions
 
 ## Author
 
