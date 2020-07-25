@@ -71,6 +71,7 @@ const pauseBtn = document.querySelector('.pause-btn');
 const playBtn = document.querySelector('.play-btn');
 const paused = document.querySelector('.paused');
 const btns = document.querySelectorAll('.click');
+const icons = document.querySelectorAll('.social a');
 
 const intro = new Audio('../audio/intro.mp3');
 const gamePlay = new Audio('../audio/gameplay.mp3');
@@ -139,6 +140,7 @@ const timer = () => {
 		gameOver.play();
 		setTimeout(() => (sb.style.display = 'flex'), 500);
 		sb.innerHTML = `
+      <h1> Game Over 😔</h1>
     	<p>You Scored: ${score}</p>
 			<span onclick="location.reload()" class="click">Replay</span>
     `;
@@ -155,10 +157,24 @@ const timer = () => {
 		gamePlay.pause();
 		sb.innerHTML = `
       <img src="https://www.mariowiki.com/images/1/15/MK8-Line-Mario-Trophy.gif">
-    	<p>Level Complete. Well Done!</p>
+    	<p>Level Complete. Well Done!🌟🎉</p>
 			<span onclick="location.reload()" class="click">Replay</span>
     `;
 	}
+};
+
+const pauseGame = () => {
+	pauseMenu.play();
+	gamePlay.pause();
+	isPaused = true;
+	paused.style.display = 'flex';
+};
+
+const playGame = () => {
+	pauseMenu.pause();
+	gamePlay.play();
+	isPaused = false;
+	paused.style.display = 'none';
 };
 
 grid.addEventListener('click', (event) => {
@@ -198,25 +214,15 @@ grid.addEventListener('click', (event) => {
 	}
 });
 
-btns.forEach((btn) => {
+btns.forEach((btn) =>
 	btn.addEventListener('click', () => {
 		clicks.play();
-	});
-});
+	}),
+);
 
-pauseBtn.addEventListener('click', () => {
-	pauseMenu.play();
-	gamePlay.pause();
-	isPaused = true;
-	paused.style.display = 'flex';
-});
-
-playBtn.addEventListener('click', () => {
-	pauseMenu.pause();
-	gamePlay.play();
-	isPaused = false;
-	paused.style.display = 'none';
-});
+icons.forEach((icon) => icon.addEventListener('click', pauseGame));
+pauseBtn.addEventListener('click', pauseGame);
+playBtn.addEventListener('click', playGame);
 
 startBtn.addEventListener('click', () => {
 	setInterval(() => {
