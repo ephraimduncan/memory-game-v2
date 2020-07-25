@@ -50,9 +50,11 @@ var cardsArray = [
 		img: 'img/goomba.png',
 	},
 ];
+
 var gameGrid = cardsArray.concat(cardsArray).sort(function () {
 	return 0.5 - Math.random();
 });
+
 var firstGuess = '';
 var secondGuess = '';
 var count = 0;
@@ -72,6 +74,7 @@ var pauseBtn = document.querySelector('.pause-btn');
 var playBtn = document.querySelector('.play-btn');
 var paused = document.querySelector('.paused');
 var btns = document.querySelectorAll('.click');
+
 var intro = new Audio('../audio/intro.mp3');
 var gamePlay = new Audio('../audio/gameplay.mp3');
 var pauseMenu = new Audio('../audio/pause.mp3');
@@ -81,9 +84,11 @@ var clicks = new Audio('../audio/pair2.mp3');
 var gameOver = new Audio('../audio/gameover.mp3');
 var final = new Audio('../audio/final.wav');
 var completed = new Audio('../audio/complete.mp3');
+
 grid.setAttribute('class', 'grid');
 game.appendChild(grid);
 intro.play();
+
 gameGrid.forEach(function (item) {
 	var name = item.name,
 		img = item.img;
@@ -198,23 +203,27 @@ grid.addEventListener('click', function (event) {
 		previousTarget = clicked;
 	}
 });
+
 btns.forEach(function (btn) {
 	btn.addEventListener('click', function () {
 		clicks.play();
 	});
 });
+
 pauseBtn.addEventListener('click', function () {
 	pauseMenu.play();
 	gamePlay.pause();
 	isPaused = true;
 	paused.style.display = 'flex';
 });
+
 playBtn.addEventListener('click', function () {
 	pauseMenu.pause();
 	gamePlay.play();
 	isPaused = false;
 	paused.style.display = 'none';
 });
+
 startBtn.addEventListener('click', function () {
 	setInterval(function () {
 		if (!isPaused) {
