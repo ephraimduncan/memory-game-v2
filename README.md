@@ -15,23 +15,23 @@ Inspired by [Tania Rascia](http://taniarascia.github.io/memory). Read the tutori
 
 ### Home
 
-<img src="./img/sc1.png" width="600">
+<img src="./img/sc1.png">
 
 ### Gameplay
 
-<img src="./img/sc2.png" width="600">
+<img src="./img/sc2.png">
 
 ### Pause Menu
 
-<img src="./img/sc3.png" width="600">
+<img src="./img/sc3.png">
 
 ### Game Over
 
-<img src="./img/sc4.png" width="600">
+<img src="./img/sc4.png">
 
 ### Winner
 
-<img src="./img/sc5.png" width="600">
+<img src="./img/sc5.png">
 
 ## Features
 
