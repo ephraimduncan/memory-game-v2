@@ -1,7 +1,7 @@
 # ⭐ Super Mario Memory Game
 
 <div align="center">
-  <img src="./img/logo.png">
+  <img src="./img/logo.png" >
 </div>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
