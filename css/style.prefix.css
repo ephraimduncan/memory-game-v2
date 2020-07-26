@@ -87,10 +87,10 @@ body {
 }
 .score,
 .time {
-	font-family: Bangers, sans-serif;
-	font-size: 3rem;
-	color: #fab942;
-	margin: 0.2rem;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.7rem;
+  color: #fab942;
+  margin: 1rem;
 }
 
 .paused,
@@ -111,8 +111,8 @@ body {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	font-family: Bangers, sans-serif;
-	font-size: 3rem;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 2rem;
 	text-align: center;
 	position: absolute;
 	top: 0;
