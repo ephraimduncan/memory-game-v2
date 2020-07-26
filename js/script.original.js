@@ -128,7 +128,7 @@ const resetGuesses = () => {
 
 const increaseScore = () => {
   score++;
-  scoreboard.textContent = `SCORE: ${score}`;
+  scoreboard.textContent = `Score: ${score}`;
   setTimeout(match, delay);
 };
 

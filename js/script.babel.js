@@ -128,7 +128,7 @@ var resetGuesses = function resetGuesses() {
 
 var increaseScore = function increaseScore() {
   score++;
-  scoreboard.textContent = "SCORE: ".concat(score);
+  scoreboard.textContent = "Score: ".concat(score);
   setTimeout(match, delay);
 };
 
